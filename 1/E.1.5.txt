@@ -1,0 +1,4 @@
+If Ben is using applicative order it will never finish since it will keep substituting p with p forever.
+It will go from (test 0 (p)) -> (test 0 (p)) -> (test 0 (p)) ... forever
+If Ben is using normal order then it will finish since the (p) will not be evaluated.
+It will go from (test 0 (p))-> (if (= 0 0) 0 (p)) -> (if #t 0 (p)) -> 0

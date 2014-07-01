@@ -1,0 +1,1 @@
+The function will never finish execution because if we are using application-order evaluation the sqrt-iter will keep getting evaluated regardless of it is good enough.
