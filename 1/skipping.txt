@@ -1,0 +1,2 @@
+The ones I am skipping to maybe come back to later. Most I am skipping because they are proofs rather than excercises in programming.
+1.13 Prove Fib(n) is the closest integer to [goldenratio]^n/sqrt(5)
