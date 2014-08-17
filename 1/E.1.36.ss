@@ -3,6 +3,9 @@
     (define (close-enough? v1 v2)
           (< (abs (- v1 v2)) tolerance))
       (define (try guess)
+        (display "Current guess  ")
+        (display (+ (- guess .01) .01))
+        (newline)
             (let ((next (f guess)))
                     (if (close-enough? guess next)
                                 next
@@ -11,4 +14,8 @@
 (define (golden-ratio)
   (fixed-point (lambda (y) (+ 1 (/ 1 y)))
                1))
+
+(define (solution)
+  (fixed-point (lambda (y) (/ (log 1000) (log y))) 10))
+
 
