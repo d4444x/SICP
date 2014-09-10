@@ -1,0 +1,72 @@
+Let:
+P = phi
+G = -1/phi
+
+Notice that:
+
+P^2 = P + 1 and 1/P + 1 = P.
+G^2 = G + 1 and 1/G + 1 = G.
+
+The definition of Fib(n) is as follows:
+
+Fib(n) = 0 if n = 0
+Fib(n) = 1 if n = 1
+Fib(n) = Fib(n - 1) + Fib(n - 2) Otherwise
+
+First we prove that Fib(n) = (P^n - G^n)/sqrt(5)
+
+To prove that Fib(n) = (P^n - G^n)/sqrt(5) let us check that it is true for n = 0, 1, 2.
+
+n = 0
+Fib(0) = 0
+(1 - 1)/sqrt(5) = 0
+
+n = 1
+Fib(1) = 1
+((1 + sqrt(5))/2 - (1 - sqrt(5))/2)/sqrt(5) = (2 * sqrt(5))/sqrt(5) = 1
+
+n = 2
+Fib(2) = 2
+((1 + sqrt(5))/2 + 1 - ((1 - sqrt(5))/2 + 1))/sqrt(5) = (2 * sqrt(5))/sqrt(5) = 1
+Used the property that P^2 = P + 1 and G^2 = G + 1
+
+Let us assume that for n = 0, 1, 2 ... ,k it is true that Fib(n) = (P^n - G^n)/sqrt(5).
+Then let us set n = k + 1.
+
+(P^(k+1) - G^(k+1))/sqrt(5) = (P^k - G^k)/sqrt(5) + (P^(k-1) - G^(k-1))/sqrt(5)
+	= (P^k - G^k + P^(k-1) - G^(k-1))/sqrt(5)
+	= (P^k + P^(k-1) - G^k - G^(k-1))/sqrt(5)
+	= ((P^k + P^(k-1)) - (G^k + G^(k-1)))/sqrt(5)
+	= ((P^(k+1) * (P^(-1) + P^(-2))) - (G^(k+1) * (G^(-1) + G^(-2))))/sqrt(5)
+	= ((P^(k+1) * P^(-1) * (1 + P^(-1))) - (G^(k+1) * G^(-1) * (1 + G^(-1))))/sqrt(5)
+Using the property that 1/P + 1 = P and 1/G + 1 = G we get the following:
+	= ((P^(k+1) * P^(-1) * P) - (G^(k+1) * G^(-1) * G))/sqrt(5)
+	= (P^(k+1) - G^(k+1))/sqrt(5)
+
+Thus, by proof of induction, we know that Fib(n) = (P^n - G^n)/sqrt(5).
+
+Let us re-arrange the equation:
+
+Fib(n) - P^n/sqrt(5) = -(G^n/sqrt(5))
+
+We know that Fib(n) is the closest integer to P^n/sqrt(5) if Fib(n) - P^n/sqrt(5) < 1/2.
+Thus we must prove that
+
+- (G^n/sqrt(5)) < 1/2.
+
+Re-arrange it to:
+
+-(G^n) < sqrt(5)/2
+
+We can evaluate G since G = (1 - sqrt(5))/2 ~ -0.61803
+Since G < 1. We know
+ -(G^n) < 1 for all n > 0.
+
+We can then evaluate sqrt(5)/2 ~ 1.11803
+
+Since -(G^n) < 1 and sqrt(5)/2 > 1 then
+-(G^n) < sqrt(5)/2.
+
+Thus Fib(n) must be the closest integer to P^n/sqrt(5).
+
+
